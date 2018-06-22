@@ -432,7 +432,7 @@
 
           
           
-             <span id="/blog/blogarticles/9619e032.html" class="leancloud_visitors" data-flag-title="Hello Hexo：一回生">
+             <span id="/blog/blog/articles/9619e032.html" class="leancloud_visitors" data-flag-title="Hello Hexo：一回生">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1331,7 +1331,7 @@
 
     function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim().substring(5);
+      var url = $visitors.attr('id').substring(5).trim();
       var title = $visitors.attr('data-flag-title').trim();
       var query = new AV.Query(Counter);
 
