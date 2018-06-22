@@ -1105,7 +1105,7 @@
 
     function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
+      var url = $visitors.attr('id').trim().substring(5);
       var title = $visitors.attr('data-flag-title').trim();
       var query = new AV.Query(Counter);
 
