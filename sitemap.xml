@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.icheero.com/blog/about/index.html</loc>
+    
+    <lastmod>2018-06-25T09:26:07.700Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.icheero.com/blog/articles/6b68fde8.html</loc>
     
     <lastmod>2018-06-25T07:56:23.482Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://www.icheero.com/blog/categories/index.html</loc>
     
     <lastmod>2018-06-19T06:05:40.293Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.icheero.com/blog/about/index.html</loc>
-    
-    <lastmod>2018-06-19T06:05:32.306Z</lastmod>
     
   </url>
   
