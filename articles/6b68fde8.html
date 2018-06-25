@@ -277,14 +277,6 @@
         
         
           
-          <li class="menu-item menu-item-schedule">
-    <a href="/blog/schedule" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />日程表</a>
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-about">
     <a href="/blog/about" rel="section">
       <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于作者</a>
@@ -986,6 +978,30 @@ abbrlink:
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: false,
+        appId: 'Wg9oNW0GA7IktRauJuHjtykf-gzGzoHsz',
+        appKey: 'nMNPgvKOy0Ur44YUlwC8wwPK',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
