@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/blog/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/blog/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: true,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Hello World 〇.">
+<meta name="keywords" content="FaceID,Java,Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FaceID API Call Library 使用文档">
+<meta property="og:url" content="https://www.icheero.com/blog/articles/25771a1d.html">
+<meta property="og:site_name" content="Cheero">
+<meta property="og:description" content="Hello World 〇.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==">
+<meta property="og:updated_time" content="2018-08-08T10:19:54.238Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FaceID API Call Library 使用文档">
+<meta name="twitter:description" content="Hello World 〇.">
+<meta name="twitter:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==">
+
+
+
+
+
+
+  <link rel="canonical" href="https://www.icheero.com/blog/articles/25771a1d.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>FaceID API Call Library 使用文档 | Cheero</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <!-- Github:Fork Start -->
+    <a href="https://github.com/zuochengyao" target="_blank" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <!-- Github:Fork End -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cheero</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A full-stack developer is coming</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/blog/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/blog/categories" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/blog/tags" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/blog/archives" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/blog/about" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于作者</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.icheero.com/blog/blog/articles/25771a1d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cheero">
+      <meta itemprop="description" content="耀哥很忙">
+      <meta itemprop="image" content="/blog/images/cheero_logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cheero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">FaceID API Call Library 使用文档
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-03 11:26:58" itemprop="dateCreated datePublished" datetime="2018-08-03T11:26:58+08:00">2018-08-03</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/articles/25771a1d.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/blog/articles/25771a1d.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/articles/25771a1d.html" class="leancloud_visitors" data-flag-title="FaceID API Call Library 使用文档">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">13k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">22 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center">Hello World</blockquote><br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/blog/articles/25771a1d/img_head.jpg"></p>
+<h2 id="〇"><a href="#〇" class="headerlink" title="〇."></a>〇.</h2><p id="div-border-left-green"><br></p>
+
+<a id="more"></a>
+<p><blockquote class="blockquote-center">为了人工智能终将创造的所有美好<br>Power Human with AI</blockquote><br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/blog/articles/25771a1d/img_head.jpg" title="FaceID 在线身份验证服务"></p>
+<h1 id="〇-咳咳。。讲两句"><a href="#〇-咳咳。。讲两句" class="headerlink" title="〇. 咳咳。。讲两句"></a>〇. 咳咳。。讲两句</h1><p id="div-border-left-green">&emsp;&emsp;入职Face++八个月，微信客户群目前没有1000个也有800了，忙碌的同时也对公司业务充满信心。在最新一个Q与Leader谈话时，根据每周工作内容的“大数据”分析，客户在集成SDK过程中，经常会出现FaceID API接口请求不通的情况，而作为一个安（quan）卓（zhan）技术支持工程师，本职工作就是为客户迅速定位并解决问题，使之能更快速落地，所以这几天我对这些接口做了一些封装，下面开始介绍这个库的使用。</p>
+
+<!-- more -->
+<h1 id="一-库の引用"><a href="#一-库の引用" class="headerlink" title="一. 库の引用"></a>一. 库の引用</h1><p>API库已经上传到了jCenter中，可以在Gradle中直接引用，方式如下：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">'com.megvii.api:faceid:1.0.0'</span></span><br></pre></td></tr></table></figure></p>
+<p>库的网络层使用的是第三方的okhttp，里面对他进行了一些简单的封装，但是这部分代码已经混淆，并未向外暴露。目的就是希望用户在使用上，只需要去关注api接口本身，忽略实现。<a href="https://github.com/zuochengyao/FaceIDApi" target="_blank" rel="noopener">源码</a>在Github上，如果不希望混淆的也可以自行下载。</p>
+<h1 id="二-类の说明"><a href="#二-类の说明" class="headerlink" title="二. 类の说明"></a>二. 类の说明</h1><h2 id="1-com-megvii-api"><a href="#1-com-megvii-api" class="headerlink" title="1. com.megvii.api"></a>1. com.megvii.api</h2><h3 id="类：FaceIDConst"><a href="#类：FaceIDConst" class="headerlink" title="类：FaceIDConst"></a>类：FaceIDConst</h3><p>此类为调用FaceID-API接口的 <strong>参数名称</strong> 常量，用于 <strong>请求中的填入的Key</strong> 与 <strong>解析返回的json</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// region Base</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String API_PARAM_API_KEY = <span class="string">"api_key"</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String API_PARAM_API_SECRET = <span class="string">"api_secret"</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String API_PARAM_REQUEST_ID = <span class="string">"request_id"</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String API_PARAM_TIME_USED = <span class="string">"time_used"</span>;</span><br><span class="line"><span class="comment">// endregion</span></span><br><span class="line">...略</span><br></pre></td></tr></table></figure></p>
+<p>具体可在库中进行查看，不在此进行详细说明</p>
+<h3 id="类：FaceIDConfig"><a href="#类：FaceIDConfig" class="headerlink" title="类：FaceIDConfig"></a>类：FaceIDConfig</h3><p>FaceID全局配置类，用于配置FaceID业务的key与secret（必须），还可以配置http请求中的connect超时时间、read超时时间和write超时时间（非必须，默认时间分别为20s, 30s和30s）。<br>此类使用了Builder模式，获取实例对象方法如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FaceIDConfig config = <span class="keyword">new</span> FaceIDConfig.Builder()</span><br><span class="line">                .setApiKey(<span class="string">"your key"</span>)</span><br><span class="line">                .setApiSecret(<span class="string">"your secret"</span>)</span><br><span class="line">                .setConnectTimeout(<span class="number">20</span>)</span><br><span class="line">                .setReadTimeout(<span class="number">30</span>)</span><br><span class="line">                .setWriteTimeout(<span class="number">30</span>)</span><br><span class="line">                .build();</span><br></pre></td></tr></table></figure></p>
+<h3 id="接口：FaceIDApiCallback"><a href="#接口：FaceIDApiCallback" class="headerlink" title="接口：FaceIDApiCallback"></a>接口：FaceIDApiCallback</h3><p>FaceID API异步请求回调接口，接口中有两个方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 发送的网络请求，收到服务器响应时回调</span></span><br><span class="line"><span class="comment"> * 包含非200的请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> apiId 请求api的id，用于区分是哪一个http请求结果</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> statusCode 状态码</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> json 返回json结果</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(<span class="keyword">int</span> apiId, <span class="keyword">int</span> statusCode, String json)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 发送的网络请求异常时回调</span></span><br><span class="line"><span class="comment"> * 非200的请求不会调用此接口，只处理请求异常</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> apiId 请求api的id，用于区分是哪一个http请求结果</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> e IO异常</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(<span class="keyword">int</span> apiId, IOException e)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="类：FaceIDApi"><a href="#类：FaceIDApi" class="headerlink" title="类：FaceIDApi"></a>类：FaceIDApi</h3><p>FaceID API的接口封装类，所有用到的faceid接口全部由此类提供。此类为单例模式，在使用时需要先进行初始化设置；所有接口请求为异步方式，所有回调均是通过<code>FaceIDApiCallback</code>进行通知。</p>
+<h4 id="公有属性"><a href="#公有属性" class="headerlink" title="公有属性"></a>公有属性</h4><p>用于在接口回调时，区别某个请求的ID值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Detect 接口回调id */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> API_ID_DETECT = <span class="number">101</span>;</span><br><span class="line"><span class="comment">/** IDCardOCR（V1版本） 接口回调id */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> API_ID_OCR_IDCARD_V1 = <span class="number">102</span>;</span><br><span class="line"><span class="comment">/** IDCardOCR（V2版本） 接口回调id */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> API_ID_OCR_IDCARD_V2 = <span class="number">103</span>;</span><br><span class="line"><span class="comment">/** BankCardOCR 接口回调id */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> API_ID_OCR_BANKCARD = <span class="number">104</span>;</span><br><span class="line"><span class="comment">/** Verify 接口回调id */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> API_ID_VERIFY = <span class="number">105</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="获取实例"><a href="#获取实例" class="headerlink" title="获取实例"></a>获取实例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FaceIDApi <span class="title">getInstance</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<h4 id="配置初始化"><a href="#配置初始化" class="headerlink" title="配置初始化"></a>配置初始化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * FaceIDApi 配置初始化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> config FaceIDConfig 全局配置</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(@NonNull FaceIDConfig config)</span></span>;</span><br></pre></td></tr></table></figure>
+<h4 id="设置网络回调监听器"><a href="#设置网络回调监听器" class="headerlink" title="设置网络回调监听器"></a>设置网络回调监听器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFaceIDApiCallback</span><span class="params">(FaceIDApiCallback callback)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>由于设置后，单例对象会一直持有当前设置的实例，这可能会造成内存泄漏，所以当不需要回调时，请将其设置为null</p>
+<h4 id="Detect：人脸检测接口方法"><a href="#Detect：人脸检测接口方法" class="headerlink" title="Detect：人脸检测接口方法"></a>Detect：人脸检测接口方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 检测一张照片中的人脸，并且将检测出的人脸保存到FaceID平台里，便于后续的人脸比对</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> detectImage 真人人脸照片</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> multiOrientedDetection 是否启动旋转检测；"1"：启动 "0"：不启动</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Detect</span><span class="params">(@NonNull File detectImage, @MultiOrientedDetection <span class="keyword">int</span> multiOrientedDetection)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 检测一张照片中的人脸，并且将检测出的人脸保存到FaceID平台里，便于后续的人脸比对</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> detectData 真人人脸数据流</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> multiOrientedDetection 是否启动旋转检测；"1"：启动 "0"：不启动</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Detect</span><span class="params">(@NonNull <span class="keyword">byte</span>[] detectData, @MultiOrientedDetection <span class="keyword">int</span> multiOrientedDetection)</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="IDCardOCR：身份证检测接口方法"><a href="#IDCardOCR：身份证检测接口方法" class="headerlink" title="IDCardOCR：身份证检测接口方法"></a>IDCardOCR：身份证检测接口方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 检测和识别中华人民共和国第二代身份证</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> idcardImage 一个身份证照图片，二进制文件</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> legality 返回身份证照片合法性检查结果；"1"：返回 "0"：不返回</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> V1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">IDCardOCR_V1</span><span class="params">(@NonNull File idcardImage, @Nullable String legality)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 检测和识别中华人民共和国第二代身份证</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> idcardImage 一个身份证照图片，二进制文件</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> returnPortrait 是否返回身份证上的人像；"1"：返回 "0"：不返回</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> V2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">IDCardOCR_V2</span><span class="params">(@NonNull File idcardImage, @Nullable String returnPortrait)</span></span>;</span><br></pre></td></tr></table></figure>
+<h4 id="BankCardOCR：银行卡检测接口方法"><a href="#BankCardOCR：银行卡检测接口方法" class="headerlink" title="BankCardOCR：银行卡检测接口方法"></a>BankCardOCR：银行卡检测接口方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 检测和识别银行卡的卡号信息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> bankcardImage 一个银行卡照图片，二进制文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">BankCardOCR</span><span class="params">(@NonNull File bankcardImage)</span></span>;</span><br></pre></td></tr></table></figure>
+<h4 id="Verify：人脸比对接口方法"><a href="#Verify：人脸比对接口方法" class="headerlink" title="Verify：人脸比对接口方法"></a>Verify：人脸比对接口方法</h4><p>由于<a href="https://faceid.com/pages/documents/4173286" target="_blank" rel="noopener">FaceID-Verify</a>接口参数的多变性，所以这个接口并没有直接调用的方法，而是将其封装成一个内部类-FaceIDApi.Verify（<a href="#inner" class="nav-link">详见</a>），通过本小节的以下两个重载方法，即可获得 <strong>有源比对</strong> 与 <strong>无源比对</strong> 的Verify实例对象<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个内部类Verify有源比对请求对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> idcardName 身份证号</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> idcardNumber 身份证号</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> multiOrientedDetection 对image参数和image_ref[x]参数启用图片旋转检测功能；"1"：启用 "0"：不启用</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef1 参照人脸照片1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef2 参照人脸照片2</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef3 参照人脸照片3</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> Verify有源比对请求对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> FaceIDApi.<span class="function">Verify <span class="title">Verify</span><span class="params">(@NonNull String idcardName, @NonNull String idcardNumber, @MultiOrientedDetection String multiOrientedDetection, File imageRef1, File imageRef2, File imageRef3)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个内部类Verify无源比对请求对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> uuid 标志本次识别对应的用户的id</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef1 参照人脸照片1（必须）</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> multiOrientedDetection 对image参数和image_ref[x]参数启用图片旋转检测功能；"1"：启用 "0"：不启用</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef2 参照人脸照片2</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef3 参照人脸照片3</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> Verify无源比对请求对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> FaceIDApi.<span class="function">Verify <span class="title">Verify</span><span class="params">(@NonNull String uuid, @NonNull File imageRef1, @MultiOrientedDetection String multiOrientedDetection, File imageRef2, File imageRef3)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p><a id="inner"></a></p>
+<h4 id="内部类：Verify"><a href="#内部类：Verify" class="headerlink" title="内部类：Verify"></a>内部类：Verify</h4><h5 id="内部类构造方法"><a href="#内部类构造方法" class="headerlink" title="内部类构造方法"></a>内部类构造方法</h5><p>内部类的所有构造方法都是private类型，获取此内部类对象方式Verify：有源比对面详解。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 构造器：有源比对</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> idcardName 身份证号</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> idcardNumber 身份证号</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> multiOrientedDetection 对image参数和image_ref[x]参数启用图片旋转检测功能；"1"：启用 "0"：不启用</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef1 参照人脸照片1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef2 参照人脸照片2</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef3 参照人脸照片3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">Verify</span><span class="params">(String idcardName, String idcardNumber, String multiOrientedDetection, File imageRef1, File imageRef2, File imageRef3)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 构造器：无源比对</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> uuid 标志本次识别对应的用户的id</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef1 参照人脸照片1（必须）</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> multiOrientedDetection 对image参数和image_ref[x]参数启用图片旋转检测功能；"1"：启用 "0"：不启用</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef2 参照人脸照片2</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageRef3 参照人脸照片3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">Verify</span><span class="params">(String uuid, File imageRef1, String multiOrientedDetection, File imageRef2, File imageRef3)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 构造器</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> comparisonType 确定本次比对为“有源比对”或“无源比对”</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> multiOrientedDetection 对image参数和image_ref[x]参数启用图片旋转检测功能；"1"：启用 "0"：不启用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">Verify</span><span class="params">(String comparisonType, String multiOrientedDetection)</span></span></span><br></pre></td></tr></table></figure></p>
+<h5 id="内部类公有方法"><a href="#内部类公有方法" class="headerlink" title="内部类公有方法"></a>内部类公有方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 配合MegLiveSDK使用时，进行比对调用此方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> delta 校验上传数据的校验字符串</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageBest MegLiveSDK返回的质量最佳的人脸图片</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageEnv MegLiveSDK返回的带环境图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageAction1 活体检测图片1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageAction2 活体检测图片2</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageAction3 活体检测图片3</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageAction4 活体检测图片4</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> imageAction5 活体检测图片5</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> checkDelta 校验delta是否已经使用过；"1"：校验 "0"：不校验</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ByMeglive</span><span class="params">(@NonNull String delta, @NonNull File imageBest, File imageEnv, File imageAction1, File imageAction2, File imageAction3, File imageAction4, File imageAction5, @CheckDelta String checkDelta)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 调用detect后获得facetoken时，进行比对调用此方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> faceToken 使用detect接口获得的一个标示人脸的token</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ByFaceToken</span><span class="params">(@NonNull String faceToken)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 直接上传一张照片时，进行比对调用此方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> image 待比对的人脸照片</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> failWhenMultipleFaces 对验证照作人脸检测时发现有多张脸，是否立即返回错误，或者取最大的一张脸继续比对；"1"：立即返回错误码 "0"：取最大脸继续比对</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> faceQualityThreshold 验证照中（最大的一张）人脸图像质量分的阈值 （缺省值为30）</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> returnFaces 返回人脸检测结果；"1"：返回 "0"：不返回</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ByRawImage</span><span class="params">(@NonNull File image, @FailWhenMultipleFaces String failWhenMultipleFaces, String faceQualityThreshold, @ReturnFaces String returnFaces)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 配合MegLiveFlash（炫彩活体）SDK使用时，进行比对调用此方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> megliveFlashResult 在 MegLiveFlash（炫彩活体）成功时会生成并返回一个文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ByMegliveFlash</span><span class="params">(@NonNull File megliveFlashResult)</span></span>;</span><br></pre></td></tr></table></figure>
+<h2 id="2-com-megvii-api-entity"><a href="#2-com-megvii-api-entity" class="headerlink" title="2. com.megvii.api.entity"></a>2. com.megvii.api.entity</h2><p>此包下的类，用于将FaceIDApi类中的http请求返回的Json结果，解析成对应对象的实体类。引用库代码已混淆，但已封装好访问器，可以通过<code>setX()</code>与<code>getX()</code>进行赋值与取值，所有类中的私有属性均与FaceID接口文档的返回参数一一对应，详细的说明可以查看<a href="https://faceid.com/pages/documents/" target="_blank" rel="noopener">官网文档</a></p>
+<h2 id="3-com-megvii-api-util"><a href="#3-com-megvii-api-util" class="headerlink" title="3. com.megvii.api.util"></a>3. com.megvii.api.util</h2><h3 id="类：JsonUtil"><a href="#类：JsonUtil" class="headerlink" title="类：JsonUtil"></a>类：JsonUtil</h3><p>此工具类可将FaceIDApi中的返回结果，解析为对应的对象<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * json结果解析为com.megvii.api.entity.Detect对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> body Detect接口返回json结果</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> com.megvii.api.entity.Detect对象，若body为非标准json格式，则返回null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Detect <span class="title">json2Detect</span><span class="params">(@NonNull String body)</span> <span class="keyword">throws</span> NullPointerException</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * json结果解析为com.megvii.api.entity.IDCardV1对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> body IDCardOCR_V1接口返回json结果</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> com.megvii.api.entity.IDCardV1对象，若body为非标准json格式，则返回null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IDCardV1 <span class="title">json2IDCardV1</span><span class="params">(@NonNull String body)</span> <span class="keyword">throws</span> NullPointerException</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * json结果解析为com.megvii.api.entity.IDCardV2对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> body IDCardOCR_V2接口返回json结果</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> com.megvii.api.entity.IDCardV2对象，若body为非标准json格式，则返回null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IDCardV2 <span class="title">json2IDCardV2</span><span class="params">(@NonNull String body)</span> <span class="keyword">throws</span> NullPointerException</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * json结果解析为com.megvii.api.entity.BankCard对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> body BankCardOCR接口返回json结果</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> com.megvii.api.entity.BankCard对象，若body为非标准json格式，则返回null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BankCard <span class="title">json2BankCard</span><span class="params">(@NonNull String body)</span> <span class="keyword">throws</span> NullPointerException</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * json结果解析为com.megvii.api.entity.Verify对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> body Verify接口返回json结果</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> com.megvii.api.entity.Verify对象，若body为非标准json格式，则返回null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Verify <span class="title">json2Verify</span><span class="params">(@NonNull String body)</span> <span class="keyword">throws</span> NullPointerException</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="类：Common"><a href="#类：Common" class="headerlink" title="类：Common"></a>类：Common</h3><p>Common类提供一些简单的方法，如base64转文件、根据detect接口返回人脸坐标截取人脸等，此类功能会根据客户需求，在后续版本中持续更新<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * base64转换为图片文件</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> filePath 图片文件路径</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> base64 图片base64数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 转换图片</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> File <span class="title">convert2File</span><span class="params">(String filePath, String base64)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Sha1 算法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> strSrc 待加密串</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 加密后的串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">shaEncrypt</span><span class="params">(String strSrc)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数据转换16进制</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> bts 数据</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">bytes2Hex</span><span class="params">(<span class="keyword">byte</span>[] bts)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 截取图片中的人脸</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> rect 人脸框在图片中的位置占比</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> filePath 人脸图路径</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 人脸图</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">getFaceBitmap</span><span class="params">(RectF rect, String filePath)</span></span>;</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">## 4. com.megvii.api.annotation</span><br><span class="line">此包下为自定义注解，用于限定函数参数的取值范围，实际开发使用中可不用过多关注。</span><br><span class="line"></span><br><span class="line"># 三. 库の示例</span><br><span class="line"></span><br><span class="line">```Java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">FaceIDApiCallback</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">// 配置config参数</span></span><br><span class="line">        FaceIDConfig config = <span class="keyword">new</span> FaceIDConfig.Builder()</span><br><span class="line">                .setApiKey(<span class="string">"56ymDEP38_Z1uwDoyRSUEUr_ukBJfEzG"</span>)</span><br><span class="line">                .setApiSecret(<span class="string">"Lmy0aNaQ2fXg_ZaliQtvhjcPrgmxGq5y"</span>)</span><br><span class="line">                .setConnectTimeout(<span class="number">20</span>)</span><br><span class="line">                .setReadTimeout(<span class="number">30</span>)</span><br><span class="line">                .setWriteTimeout(<span class="number">30</span>)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="comment">// 初始化FaceIDApi                </span></span><br><span class="line">        FaceIDApi.getInstance().init(config);</span><br><span class="line">        <span class="comment">// 设置监听</span></span><br><span class="line">        FaceIDApi.getInstance().setFaceIDApiCallback(<span class="keyword">this</span>);</span><br><span class="line">        <span class="comment">// 发送Detect接口请求</span></span><br><span class="line">        FaceIDApi.getInstance().Detect(detectFile, <span class="number">1</span>);</span><br><span class="line">        <span class="comment">// 发送IDCardOCR(V1)接口请求</span></span><br><span class="line">        FaceIDApi.getInstance().IDCardOCR_V1(idcardFile, <span class="string">"1"</span>);</span><br><span class="line">        <span class="comment">// 发送IDCardOCR(V2)接口请求</span></span><br><span class="line">        FaceIDApi.getInstance().IDCardOCR_V2(idcardFile, <span class="string">"1"</span>);</span><br><span class="line">        <span class="comment">// 发送BankCardOCR接口请求</span></span><br><span class="line">        FaceIDApi.getInstance().BankCardOCR(bankcardFile);</span><br><span class="line">        <span class="comment">// 获取有源比对实例对象</span></span><br><span class="line">        FaceIDApi.Verify hasSource = FaceIDApi.getInstance().Verify(<span class="string">"姓名"</span>, <span class="string">"身份证号"</span>, <span class="string">"1"</span>, imageRef1, imageRef2, imageRef3);</span><br><span class="line">        <span class="comment">// 通过detect后获得facetoke调用有源比对</span></span><br><span class="line">        hasSource.ByFaceToken(<span class="string">"your face token"</span>);</span><br><span class="line">        <span class="comment">// 配合MegLiveSDK使用时调用有源比对</span></span><br><span class="line">        hasSource.ByMeglive(delta, imageBest, imageEnv, imageAction1, imageAction2, imageAction3, imageAction4, imageAction5, <span class="string">"1"</span>);</span><br><span class="line">        <span class="comment">// 直接上传一张照片时调用有源比对</span></span><br><span class="line">        hasSource.ByRawImage(file, <span class="string">"1"</span>, <span class="string">"30"</span>, <span class="string">"1"</span>);</span><br><span class="line">        <span class="comment">// 配合MegLiveFlash（炫彩活体）SDK使用时调用有源比对</span></span><br><span class="line">        hasSource.ByMegliveFlash(megliveFlashResult);</span><br><span class="line">        <span class="comment">// 获取无源比对实例对象</span></span><br><span class="line">        FaceIDApi.Verify noSource = FaceIDApi.getInstance().Verify(uuid, imageRef1, <span class="string">"0"</span>, imageRef2, imageRef3);</span><br><span class="line">        <span class="comment">// noSource方法调用与hasSource相同，在此略过。</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="comment">// 取消监听</span></span><br><span class="line">        FaceIDApi.getInstance().setFaceIDApiCallback(<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// FaceIDApiCallback响应回调，在onCreate方法中调用接口请求方法，成功后（成功包含非200的情况）回调此方法，根据对应的apiId进行区分。</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(<span class="keyword">int</span> apiId, <span class="keyword">int</span> statusCode, String json)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Log.d(TAG,String.format(<span class="string">"ApiID:%d, StatusCode:%d, Json:%s"</span>, apiId, statusCode, json));</span><br><span class="line">        <span class="keyword">if</span> (statusCode == <span class="number">200</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">switch</span> (apiId)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">case</span> FaceIDApi.API_ID_DETECT:</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">// 根据返回json结果，解析成Detect对象</span></span><br><span class="line">                    Detect detect = JsonUtil.json2Detect(json);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">case</span> FaceIDApi.API_ID_OCR_IDCARD_V1:</span><br><span class="line">                &#123;</span><br><span class="line">                    IDCardV1 idCard = JsonUtil.json2IDCardV1(json);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">case</span> FaceIDApi.API_ID_OCR_IDCARD_V2:</span><br><span class="line">                &#123;</span><br><span class="line">                    IDCardV2 idCard = JsonUtil.json2IDCardV2(json);</span><br><span class="line">                    <span class="keyword">if</span> (idCard.getSide() == <span class="number">0</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">if</span> (idCard.getFrontSide().getPortrait() != <span class="keyword">null</span>)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">boolean</span> b = Common.convert2File(idCard.getFrontSide().getPortrait().getResult());</span><br><span class="line">                            Log.d(TAG, <span class="string">"file save "</span> + b);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">case</span> FaceIDApi.API_ID_OCR_BANKCARD:</span><br><span class="line">                &#123;</span><br><span class="line">                    BankCard bankCard = JsonUtil.json2BankCard(json);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">case</span> FaceIDApi.API_ID_VERIFY:</span><br><span class="line">                &#123;</span><br><span class="line">                    Verify verify = JsonUtil.json2Verify(json);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// FaceIDApiCallback异常回调</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(<span class="keyword">int</span> apiId, IOException e)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+    <div>
+      
+        <div>
+
+    </br>
+    <div style="text-align:center;color: #ccc;font-size:14px;">------------- The End -------------</div>
+
+</div>
+      
+    </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>一分两分不嫌少，一万两万不嫌多</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/blog/images/img_wechat.jpg" alt="Cheero 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/blog/images/img_alipay.jpg" alt="Cheero 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Cheero</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.icheero.com/blog/articles/25771a1d.html" title="FaceID API Call Library 使用文档">https://www.icheero.com/blog/articles/25771a1d.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/FaceID/" rel="tag"><i class="fa fa-tag"></i> FaceID</a>
+          
+            <a href="/blog/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/blog/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/articles/6b68fde8.html" rel="next" title="Hello Hexo：二回熟">
+                <i class="fa fa-chevron-left"></i> Hello Hexo：二回熟
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/blog/images/cheero_logo.jpg"
+                alt="Cheero" />
+            
+              <p class="site-author-name" itemprop="name">Cheero</p>
+              <p class="site-description motion-element" itemprop="description">耀哥很忙</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives">
+                
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/blog/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/blog/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#〇"><span class="nav-text">〇.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#〇-咳咳。。讲两句"><span class="nav-text">〇. 咳咳。。讲两句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一-库の引用"><span class="nav-text">一. 库の引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-类の说明"><span class="nav-text">二. 类の说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-com-megvii-api"><span class="nav-text">1. com.megvii.api</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类：FaceIDConst"><span class="nav-text">类：FaceIDConst</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类：FaceIDConfig"><span class="nav-text">类：FaceIDConfig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口：FaceIDApiCallback"><span class="nav-text">接口：FaceIDApiCallback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类：FaceIDApi"><span class="nav-text">类：FaceIDApi</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#公有属性"><span class="nav-text">公有属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取实例"><span class="nav-text">获取实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置初始化"><span class="nav-text">配置初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置网络回调监听器"><span class="nav-text">设置网络回调监听器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Detect：人脸检测接口方法"><span class="nav-text">Detect：人脸检测接口方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IDCardOCR：身份证检测接口方法"><span class="nav-text">IDCardOCR：身份证检测接口方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BankCardOCR：银行卡检测接口方法"><span class="nav-text">BankCardOCR：银行卡检测接口方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Verify：人脸比对接口方法"><span class="nav-text">Verify：人脸比对接口方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内部类：Verify"><span class="nav-text">内部类：Verify</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#内部类构造方法"><span class="nav-text">内部类构造方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内部类公有方法"><span class="nav-text">内部类公有方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-com-megvii-api-entity"><span class="nav-text">2. com.megvii.api.entity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-com-megvii-api-util"><span class="nav-text">3. com.megvii.api.util</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类：JsonUtil"><span class="nav-text">类：JsonUtil</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类：Common"><span class="nav-text">类：Common</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cheero</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">21k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">35 分钟</span>
+  
+</div>
+
+
+  
+
+
+
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div> -->
+  Powered by Cheero
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'zuochengyao',
+            repo: 'hexo-comment',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '23b2dc305f3c42007fb480c1cfcd207da1ddf3e1',
+            
+                client_id: '6e5473495a430330d83a'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Wg9oNW0GA7IktRauJuHjtykf-gzGzoHsz", "nMNPgvKOy0Ur44YUlwC8wwPK");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.get('time'));
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 离开页面改变title -->
+  <script type="text/javascript" src="js/src/change-title.js"></script>
+<script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>
