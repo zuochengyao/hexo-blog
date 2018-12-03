@@ -4,6 +4,12 @@
     <title><![CDATA[MacOS：修改Launchpad图标行列数]]></title>
     <url>%2Fblog%2Farticles%2F82a2d77b.html</url>
     <content type="text"><![CDATA[造福强迫症 〇.&emsp;&emsp;强迫症，总是想把同一类的应用放在同一行，记录下改变Launchpad内图标排列的行、列数的方法。 一. 改变行数在 终端 中输入12# 改变行数为 8defaults write com.apple.dock springboard-rows -int 8 二. 改变列数在 终端 中输入12# 改变列数为 9defaults write com.apple.dock springboard-columns -int 9 三. 使之生效在 终端 中输入1killall Dock 四. 恢复默认在 终端 中输入123defaults write com.apple.dock springboard-rows Defaultdefaults write com.apple.dock springboard-columns Defaultkillall Dock]]></content>
+      <categories>
+        <category>MacOS</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[FaceID API Call Library 使用文档]]></title>
