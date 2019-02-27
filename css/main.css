@@ -1970,7 +1970,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #54b1ff;
+  background: #91fff1;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3047,15 +3047,15 @@ code {
   color: #c7254e;
   background: #f9f2f4;
   border: 1px solid #d6d6d6;
-  padding: 2px 4px;
-  word-break: break-all;
+  padding: 6px 4px;
+  word-break: break-word;
   border-radius: 4px;
-  font-size: 13px;
+  font-size: 14px;
 }
 .posts-expand .post-body img {
   margin: 0 auto;
 }
-a#download {
+a.download {
   display: inline-block;
   padding: 0 10px;
   color: #000;
@@ -3065,7 +3065,7 @@ a#download {
   transition: all 0.5s ease;
   font-weight: bold;
 }
-a#download:hover {
+a.download:hover {
   background: #000;
   color: #fff;
 }
@@ -3082,7 +3082,7 @@ a#download:hover {
   background: #000;
   color: #eee;
 }
-span#inline-yellow {
+span.inline-yellow {
   display: inline;
   padding: 0.2em 0.6em 0.3em;
   font-size: 80%;
@@ -3095,7 +3095,7 @@ span#inline-yellow {
   border-radius: 0;
   background-color: #f0ad4e;
 }
-span#inline-green {
+span.inline-green {
   display: inline;
   padding: 0.2em 0.6em 0.3em;
   font-size: 80%;
@@ -3108,7 +3108,7 @@ span#inline-green {
   border-radius: 0;
   background-color: #5cb85c;
 }
-span#inline-blue {
+span.inline-blue {
   display: inline;
   padding: 0.2em 0.6em 0.3em;
   font-size: 80%;
@@ -3121,7 +3121,7 @@ span#inline-blue {
   border-radius: 0;
   background-color: #2780e3;
 }
-span#inline-purple {
+span.inline-purple {
   display: inline;
   padding: 0.2em 0.6em 0.3em;
   font-size: 80%;
@@ -3134,10 +3134,10 @@ span#inline-purple {
   border-radius: 0;
   background-color: #9954bb;
 }
-span#inline-red {
+span.inline-red {
   display: inline;
   padding: 0.2em 0.6em 0.3em;
-  font-size: 80%;
+  font-size: 90%;
   font-weight: bold;
   line-height: 1;
   color: #fff;
@@ -3147,7 +3147,7 @@ span#inline-red {
   border-radius: 0;
   background-color: #df3e3e;
 }
-p#div-border-left-red {
+p.div-border-left-red {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3156,7 +3156,7 @@ p#div-border-left-red {
   border-radius: 3px;
   border-left-color: #df3e3e;
 }
-p#div-border-left-yellow {
+p.div-border-left-yellow {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3165,7 +3165,7 @@ p#div-border-left-yellow {
   border-radius: 3px;
   border-left-color: #f0ad4e;
 }
-p#div-border-left-green {
+p.div-border-left-green {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3174,7 +3174,7 @@ p#div-border-left-green {
   border-radius: 3px;
   border-left-color: #5cb85c;
 }
-p#div-border-left-blue {
+p.div-border-left-blue {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3183,7 +3183,7 @@ p#div-border-left-blue {
   border-radius: 3px;
   border-left-color: #2780e3;
 }
-p#div-border-left-purple {
+p.div-border-left-purple {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3192,7 +3192,7 @@ p#div-border-left-purple {
   border-radius: 3px;
   border-left-color: #9954bb;
 }
-p#div-border-right-red {
+p.div-border-right-red {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3201,7 +3201,7 @@ p#div-border-right-red {
   border-radius: 3px;
   border-right-color: #df3e3e;
 }
-p#div-border-right-yellow {
+p.div-border-right-yellow {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3210,7 +3210,7 @@ p#div-border-right-yellow {
   border-radius: 3px;
   border-right-color: #f0ad4e;
 }
-p#div-border-right-green {
+p.div-border-right-green {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3219,7 +3219,7 @@ p#div-border-right-green {
   border-radius: 3px;
   border-right-color: #5cb85c;
 }
-p#div-border-right-blue {
+p.div-border-right-blue {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3228,7 +3228,7 @@ p#div-border-right-blue {
   border-radius: 3px;
   border-right-color: #2780e3;
 }
-p#div-border-right-purple {
+p.div-border-right-purple {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3237,7 +3237,7 @@ p#div-border-right-purple {
   border-radius: 3px;
   border-right-color: #9954bb;
 }
-p#div-border-top-red {
+p.div-border-top-red {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3246,7 +3246,7 @@ p#div-border-top-red {
   border-radius: 3px;
   border-top-color: #df3e3e;
 }
-p#div-border-top-yellow {
+p.div-border-top-yellow {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3255,7 +3255,7 @@ p#div-border-top-yellow {
   border-radius: 3px;
   border-top-color: #f0ad4e;
 }
-p#div-border-top-green {
+p.div-border-top-green {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3264,7 +3264,7 @@ p#div-border-top-green {
   border-radius: 3px;
   border-top-color: #5cb85c;
 }
-p#div-border-top-blue {
+p.div-border-top-blue {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3273,7 +3273,7 @@ p#div-border-top-blue {
   border-radius: 3px;
   border-top-color: #2780e3;
 }
-p#div-border-top-purple {
+p.div-border-top-purple {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -3301,6 +3301,30 @@ span#yu-2 {
   border-top: 1px solid #222;
   border-bottom: 1px solid #222;
   font-size: 130%;
+}
+.image-width-50 img {
+  width: 50%;
+  margin: auto;
+}
+.image-width-60 img {
+  width: 60%;
+  margin: auto;
+}
+.image-width-70 img {
+  width: 70%;
+  margin: auto;
+}
+.image-width-80 img {
+  width: 80%;
+  margin: auto;
+}
+.image-width-90 img {
+  width: 90%;
+  margin: auto;
+}
+.image-width-100 img {
+  width: 100%;
+  margin: auto;
 }
 @-moz-keyframes animate-yu-1 {
   0% {

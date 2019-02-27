@@ -4,8 +4,48 @@
 
     
   <url>
+    <loc>https://www.icheero.com/blog/blog/articles/1ed9fed2.html</loc>
+    <lastmod>2019-02-27T10:12:59.533Z</lastmod>
+    <data>
+        <display>
+        <title>Android：Activity总结</title>
+        <pubTime>2019-02-22T08:47:05.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://www.icheero.com/blog/blog/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.icheero.com/blog/blog/articles/6b68fde8.html</loc>
+    <lastmod>2019-02-25T07:07:30.046Z</lastmod>
+    <data>
+        <display>
+        <title>Hello Hexo：二回熟</title>
+        <pubTime>2018-06-17T15:01:52.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="https://www.icheero.com/blog/blog/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://www.icheero.com/blog/blog/articles/9619e032.html</loc>
-    <lastmod>2019-02-22T08:35:13.218Z</lastmod>
+    <lastmod>2019-02-25T07:07:18.825Z</lastmod>
     <data>
         <display>
         <title>Hello Hexo：一回生</title>
@@ -18,6 +58,27 @@
              
               <breadCrumb title="Hexo" url="https://www.icheero.com/blog/blog/categories/Hexo/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.icheero.com/blog/blog/articles/25771a1d.html</loc>
+    <lastmod>2019-02-25T07:07:02.480Z</lastmod>
+    <data>
+        <display>
+        <title>FaceID API Call Library 使用文档</title>
+        <pubTime>2018-08-03T03:26:58.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>FaceID</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
         </display>
     </data>
     </url>
@@ -38,47 +99,6 @@
              
               <breadCrumb title="MacOS" url="https://www.icheero.com/blog/blog/categories/MacOS/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.icheero.com/blog/blog/articles/6b68fde8.html</loc>
-    <lastmod>2018-08-10T09:28:18.687Z</lastmod>
-    <data>
-        <display>
-        <title>Hello Hexo：二回熟</title>
-        <pubTime>2018-06-17T15:01:52.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="Hexo" url="https://www.icheero.com/blog/blog/categories/Hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.icheero.com/blog/blog/articles/25771a1d.html</loc>
-    <lastmod>2018-08-10T07:52:23.592Z</lastmod>
-    <data>
-        <display>
-        <title>FaceID API Call Library 使用文档</title>
-        <pubTime>2018-08-03T03:26:58.000Z</pubTime>
-        
-        <tag>FaceID</tag>
-         
-        <tag>Java</tag>
-         
-        <tag>Android</tag>
-         
-         
-           
         </display>
     </data>
     </url>
